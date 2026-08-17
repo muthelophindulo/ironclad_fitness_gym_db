@@ -14,6 +14,7 @@ schema design, constraints, triggers, and real-world query writing in SQL Server
 > own specialty. Classes run on a schedule  specific sessions, at specific
 > times, in specific rooms. Members book into sessions, and the gym needs to
 > track attendance, cancellations, and payments.
+> Members who could not book a session because it was fully booked will be added to the waitlist
 
 ## Schema Overview
 
@@ -26,6 +27,7 @@ schema design, constraints, triggers, and real-world query writing in SQL Server
 | `sessions` | Scheduled instances of a class (date, time, room, trainer) |
 | `bookings` | Members booked into sessions, with status |
 | `payments` | Membership payments per member |
+| `waitlist` | Waitlisted members on fully booked sessions |
 
 ## Entity-Relationship Diagram
 
@@ -37,7 +39,7 @@ schema design, constraints, triggers, and real-world query writing in SQL Server
 Rather than trusting the application to check capacity before inserting a
 booking, an `AFTER INSERT` trigger (`trg_booking_capacity`) checks the count
 of active bookings for a session against `class_max_members` and rolls back
-the insert if it's already full. This keeps the rule enforced at the database
+the insert if it's already full then the member is added to the waitlist which is a first come first serve. This keeps the rule enforced at the database
 level, so it holds even if something writes to `bookings` outside the app.
 
 **Numbered file prefixes**
