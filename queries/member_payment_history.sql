@@ -7,5 +7,5 @@ SELECT
     p.payment_amount,
     p.payment_date
 FROM ironclad_fitness_gym_db.members m
-LEFT OUTER JOIN ironclad_fitness_gym_db.payments p ON m.member_id = p.member_id
-LEFT OUTER JOIN ironclad_fitness_gym_db.plans pl ON p.plan_id = pl.plan_id;
+RIGHT OUTER JOIN ironclad_fitness_gym_db.payments p ON m.member_id = p.member_id
+right OUTER JOIN ironclad_fitness_gym_db.plans pl ON p.plan_id = pl.plan_id;

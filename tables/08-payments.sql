@@ -7,3 +7,9 @@ CREATE Table ironclad_fitness_gym_db.payments(
     CONSTRAINT fk_payment_plan Foreign Key (plan_id) REFERENCES ironclad_fitness_gym_db.plans (plan_id),
     CONSTRAINT fk_payment_member Foreign Key (member_id) REFERENCES ironclad_fitness_gym_db.members (member_id)
 );
+
+ALTER Table ironclad_fitness_gym_db.payments
+ADD payment_status varchar(20) not NULL DEFAULT 'paid';
+
+ALTER Table ironclad_fitness_gym_db.payments
+DROP COLUMN payment_status;

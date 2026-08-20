@@ -3,4 +3,7 @@ VALUES
 ('awande','awande@gmail.com','0661234567',1),
 ('somo','somo@gmail.com','0621234567',2),
 ('phindulo','phindulo@gmail.com','0631234567',1),
-('muthelo','muthelo@gmail.com','0641234567',2);
+('muthelo','muthelo@gmail.com','0641234567',2)
+('john','john@gmail.com','0781144280',1);
+
+SELECT * from ironclad_fitness_gym_db.members;

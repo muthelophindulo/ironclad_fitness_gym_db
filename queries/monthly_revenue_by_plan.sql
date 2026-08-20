@@ -7,4 +7,5 @@ FROM ironclad_fitness_gym_db.plans pl
 JOIN ironclad_fitness_gym_db.payments p on p.plan_id = pl.plan_id
 WHERE MONTH(p.payment_date) = MONTH(GETDATE())
     AND YEAR(p.payment_date) = YEAR(GETDATE())
+    AND p.payment_status = 'paid'
 GROUP BY pl.plan_id,pl.plan_name;
