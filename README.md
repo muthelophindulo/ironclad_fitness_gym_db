@@ -15,12 +15,14 @@ schema design, constraints, triggers, and real-world query writing in SQL Server
 > times, in specific rooms. Members book into sessions, and the gym needs to
 > track attendance, cancellations, and payments.
 > Members who could not book a session because it was fully booked will be added to the waitlist
+> track the staff and they have different roles(manager, receptionist, trainer etc)
 
 ## Schema Overview
 
 | Table | Purpose |
 |---|---|
 | `plans` | Membership plans (name, price, description) |
+| `staff` | staff and their contact info and role |
 | `members` | Gym members, linked to a plan |
 | `trainer` | Trainers and their specialties |
 | `classes` | Class types (name, duration, max capacity) |
